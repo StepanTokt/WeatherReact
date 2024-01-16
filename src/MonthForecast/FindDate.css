@@ -1,0 +1,49 @@
+.start, .end{
+    border-radius: 30px;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    background-color: #e7e7e7;
+    box-shadow: 3px 3px 10px #024a6e, -2px 1px 10px #024a6e;
+}
+
+.start:hover, .end:hover{
+    background-color: #000000;
+    box-shadow: 3px 3px 10px #ff99cc, -2px 1px 10px #ff99cc;
+}
+
+.start:hover::placeholder, .end:hover::placeholder, .start:hover, .end:hover{
+    color: white;
+}
+
+.start{
+    margin-right: 20px;
+}
+
+.start::placeholder, .end::placeholder, .start, .end{
+    font-size: 16px;
+    color:#141414;
+    text-align: center;
+}
+
+.findDate{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 460px) {
+    .findDate{
+        flex-direction: column;
+    }
+    .start{
+        margin-right: 0px;
+        margin-bottom: 5px;
+     
+    }
+}
+
+.react-datepicker__input-container{
+    display: flex;
+    justify-content: center;
+}

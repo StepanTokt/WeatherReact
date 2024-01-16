@@ -1,0 +1,104 @@
+.month_grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 50px;
+    gap: 30px;
+ 
+}
+
+.city_img{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.current_block-item{
+    cursor: pointer;
+    box-shadow: rgba(201, 198, 198, 0.35) 0px 5px 7px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    padding: 25px 50px;
+    border-radius: 30px;
+}
+
+.current_block-item:hover{
+    background-color: #141414;
+}
+
+
+.month-day_logo{
+    width: 50px;
+    height: 50px;
+}
+
+.month-city{
+    font-size: 40px;
+}
+
+.month-degree{
+    font-size: 84px;
+    margin-left: 35px;
+    color:#ff99cc;
+}
+
+.month-description{
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.month-right_side_weather{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+}
+
+.month-min_temp, .month-max_temp{
+    font-size: 12px;
+}
+
+
+
+.month-min_max_degr{
+    color:rgba(42, 230, 230);
+    font-size: 48px;
+}
+
+.MonthForecast{
+    padding-top: 50px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.more{
+    text-align: center;
+    padding: 20px;
+    background-color: #1b1b1b;    
+    color:white;
+    cursor: pointer;
+    border-radius: 15px;
+    font-size: 18px;
+    box-shadow: 3px 3px 10px #ff99cc, -2px 1px 10px #ff99cc;
+}
+
+.more:hover{
+    background-color: #2c2c2c;
+}
+
+@media screen and (max-width: 720px) {
+    .month_grid{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .current_block-item{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+.nothing{
+    text-align: center;
+}

@@ -1,0 +1,63 @@
+.byHour{
+    padding: 70px 50px 0px;
+}
+
+.byHour_grid{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+}
+
+
+.byHour_grid-item:nth-child(odd){
+    padding: 15px 30px;
+    text-align: center;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    background-image: linear-gradient(to top, #f3afb4 0%, #bdd95f 100%);
+    /* box-shadow: 3px 3px 5px #ff99cc, -2px 1px 5px #ff99cc; */
+}
+
+.byHour_grid-item:hover{
+    background-image: linear-gradient(to top, #d46a71 0%, #798b3f 100%);
+}
+
+.byHour_grid-item:nth-child(even){
+    padding: 15px 30px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 30px;
+    font-size: 18px;
+    background-image: linear-gradient(to top, #8fc0ff 0%, #f2ab59 100%);
+    /* box-shadow: 3px 3px 5px #ff99cc, -2px 1px 5px #ff99cc; */
+}
+
+.time_logo{
+    width: 70px;
+    height: 70px;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 1000px) {
+    .byHour_grid{
+        gap:20px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .byHour_grid{
+        gap:20px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .byHour_grid{
+        gap:20px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+

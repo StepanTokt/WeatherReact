@@ -1,0 +1,153 @@
+.block{
+    padding-top: 50px;
+}
+.current_block{
+    cursor: pointer;
+    box-shadow: rgba(201, 198, 198, 0.35) 0px 5px 20px;
+    display: flex;
+    justify-content: space-between;
+
+    padding-left: 50px;
+    padding-right: 50px;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.current_block:hover{
+    background-color: #141414;
+}
+
+.left_side_weather{
+    justify-content: center;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.day_logo{
+    width: 250px;
+    height: 250px;
+}
+
+
+
+
+.city{
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.degree{
+    font-size: 84px;
+    color:#ff99cc;
+    margin-right: 10px;
+}
+
+.description{
+    font-size: 24px;
+}
+
+/* .right_side_weather{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+} */
+
+.min_temp, .max_temp{
+    font-size: 32px;
+}
+
+.min_temp{
+    margin-bottom: 30px;
+}
+
+.min_max_degr{
+    color:rgba(42, 230, 230);
+    font-size: 48px;
+    margin-left: 15px;
+}
+
+.date{
+    font-size: 18px;
+    color:rgba(42, 230, 230);
+}
+
+.current_link{
+    text-decoration: none;
+    color: white
+}
+
+.right_side_weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .min_temp,
+  .max_temp {
+    display: flex;
+    align-items: center;
+    
+  }
+  
+.min_max_text{
+    margin-right: 15px;
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .current_block{
+        padding: 25px 0;
+        margin: 0 25px;
+    flex-direction: column;
+    text-align: center  ;
+    }
+    .right_side_weather {
+        flex-direction: row;
+    }
+    .min_temp{
+        margin-bottom: 0;
+        margin-right: 25px;
+    }
+    .day_logo{
+        width: 150px;
+        height: 150px;
+    }
+    .min_max_degr{
+        font-size: 32px;
+    }
+    .min_temp, .max_temp{
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .current_block{
+    padding: 15px 0;
+    margin: 0 15px;
+    flex-direction: column;
+    text-align: center  ;
+    }
+    .right_side_weather {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+    .min_temp{
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+    .day_logo{
+        width: 75px;
+        height: 75px;
+    }
+    .min_max_degr{
+        font-size: 32px;
+    }
+    .min_temp, .max_temp{
+        font-size: 24px;
+    }
+}
