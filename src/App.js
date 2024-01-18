@@ -3,13 +3,13 @@ import MainPage from './MainPage/MainPage'
 import Header from "./Header";
 import DescriptionPage from "./DescriptionPage/DescriptionPage";
 import MonthForecast from "./MonthForecast/MonthForecast";
+import Modal from "./Modal/Modal"
 import { useState } from "react";
-
 const App = () => {
-  const [city, setCity] = useState('Minsk')
+  const [modalActive, setModalActive] = useState(false)
   return (
     <Router>
-      <Header/>
+      <Header active={modalActive} setActive={setModalActive}/>
       <div className="container">
         <Routes>
             <Route path='/' element = { <MainPage/>}/>
@@ -17,6 +17,7 @@ const App = () => {
             <Route path='/month' element = { <MonthForecast/>}/>
         </Routes>
       </div>
+      <Modal active={modalActive} setActive={setModalActive}/>
     </Router>
   );
 }

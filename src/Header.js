@@ -2,7 +2,7 @@ import './styles/Header.css'
 import main_logo from './img/main_logo.svg'
 import { Link, NavLink } from "react-router-dom";
 
-const Header = () => {
+const Header = ({active, setActive}) => {
 
     return(
         <div className='header_app'>
@@ -15,11 +15,15 @@ const Header = () => {
            
             <div className="right_side">
                 <ul>
-                    <NavLink className={({ isActive }) => isActive ? "link text_shadow" : "link"} 
+                    <NavLink className={({ isActive }) => isActive && !active ? "link text_shadow" : "link"} 
                     to="/" >
-                        <li><a>Today</a></li></NavLink>
-                    {/* <Link className='link' to='/description'><li><a>Details</a></li></Link> */}
-                    <NavLink className={({ isActive }) => isActive ? "link text_shadow" : "link"}  to='/month'><li><a>Weakly Forecast</a></li></NavLink>
+                        <li><a>Today</a></li>
+                    </NavLink>
+
+                    <li className={active ? "link text_shadow" : "link"}
+                        onClick={() => setActive(true)}><a>About me</a></li>
+
+                    <NavLink className={({ isActive }) => isActive && !active ? "link text_shadow" : "link"}  to='/month'><li><a>Weakly Forecast</a></li></NavLink>
                 </ul>
             </div>
         </div>

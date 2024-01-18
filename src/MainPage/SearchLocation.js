@@ -1,6 +1,7 @@
 import './SearchLocation.css'
 import icon_search from '../img/icon _search_.png'
 import { useState } from 'react'
+import { useGeolocated } from "react-geolocated";
 const SearchLocation = (props) => {
     const [value, setValue] = useState()
 

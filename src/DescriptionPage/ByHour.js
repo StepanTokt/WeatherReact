@@ -36,6 +36,7 @@ const ByHour = () => {
                 <h1>По вашему запросу ничего не найдено</h1>
             </div>
         )
+        
         return weather.map((item,index) => (
             <div 
                 key={item.id}

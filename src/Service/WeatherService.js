@@ -33,6 +33,12 @@ const useWeatherService = () => {
         return _transformCity(res)
     }
 
+    const getCityWithCoordinates = async(lat, lon) => {
+        const res = await request(`${_http}forecast?lat=${lat}&lon=${lon}&appid=${_apiKey}&units=metric`)
+        if(res.length === 0) setProcess('error')
+        return _transformCity(res)
+    }
+
     const _transformCity = (char) => {
         return{
             city: char.city.name,
@@ -94,7 +100,8 @@ const useWeatherService = () => {
         getOneDay,
         clearError,
         getWeek,
-        getCity
+        getCity,
+        getCityWithCoordinates
     }
 }
 
