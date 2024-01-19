@@ -4,10 +4,15 @@ import Header from "./Header";
 import DescriptionPage from "./DescriptionPage/DescriptionPage";
 import MonthForecast from "./MonthForecast/MonthForecast";
 import Modal from "./Modal/Modal"
+import Spinner from "./Spinner/Spinner";
 import { useState } from "react";
 const App = () => {
   const [modalActive, setModalActive] = useState(false)
+  const [load, setLoad] = useState(false)
   return (
+    load ?
+    <Spinner/>
+    :
     <Router>
       <Header active={modalActive} setActive={setModalActive}/>
       <div className="container">

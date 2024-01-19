@@ -2,7 +2,6 @@ import './Modal.css'
 import main_logo from '../img/main_logo.svg'
 import '../styles/Header.css'
 import { useEffect } from 'react'
-import { useGeolocated } from "react-geolocated";
 const Modal = ({active, setActive}) => {
     useEffect(() => {
         const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -41,27 +40,6 @@ const Modal = ({active, setActive}) => {
             </div>
         </div>
     )
-
-    // return !isGeolocationAvailable ? (
-    //     <div>Your browser does not support Geolocation</div>
-    // ) : !isGeolocationEnabled ? (
-    //     <div>Geolocation is not enabled</div>
-    // ) : coords ? (
-    //     <table>
-    //         <tbody>
-    //             <tr>
-    //                 <td>latitude</td>
-    //                 <td>{coords.latitude}</td>
-    //             </tr>
-    //             <tr>
-    //                 <td>longitude</td>
-    //                 <td>{coords.longitude}</td>
-    //             </tr>
-    //         </tbody>
-    //     </table>
-    // ) : (
-    //     <div>Getting the location data&hellip; </div>
-    // );
 }
 
 export default Modal

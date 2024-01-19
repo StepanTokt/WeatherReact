@@ -1,17 +1,16 @@
 import './MainPage.css'
 import SearchLocation from './SearchLocation'
 import CurrentWeather from './CurrentWeather'
-import Skeleton from '../Skeleton/Skeleton'
-import Spinner from '../Spinner/Spinner'
 import { useState } from 'react'
-import setContent from '../utils/setContent'
 import Details from './Details'
 import useWeatherService from '../Service/WeatherService'
-
+import { useGeolocated } from "react-geolocated";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const MainPage = () => {
+
+   
     const [city, setCity] = useState(localStorage.getItem('city') ? localStorage.getItem('city') : 'Minsk')
     const notify = () => toast("Wow so easy!");
     const changeCity = city => {
@@ -19,6 +18,8 @@ const MainPage = () => {
         localStorage.setItem('city', city)
         toast.success(`Nice city: ${city}`);
     }
+
+    
 
     return(
         <div>
