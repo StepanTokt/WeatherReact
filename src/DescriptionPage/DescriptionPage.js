@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const DescriptionPage = () => {
-    const [city, setCity] = useState(localStorage.getItem('city') ? localStorage.getItem('city') : 'Minsk')
+    const [city, setCity] = useState(localStorage.getItem('city') ? localStorage.getItem('city') : 'Grodno')
     useEffect(()=>{
         toast.success(`Look at thiis...`);
     }, [city])

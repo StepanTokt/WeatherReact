@@ -4,12 +4,13 @@ import FindDate from "./FindDate"
 import { useState } from "react"
 
 const MonthForecast = () => {
-    const [city, setCity] = useState(localStorage.getItem('city') ? localStorage.getItem('city') : 'Minsk')
+    const [city, setCity] = useState(localStorage.getItem('city') ? localStorage.getItem('city') : 'Grodno')
     const [startDate, setStartDate] = useState()
     const [endDate, setEndDate] = useState()
 
     const changeCity = city => {
-        setCity(city)
+        if(city === 'Minsk City') setCity('Minsk')
+        else setCity(city)
         localStorage.setItem('city', city)
     }
 

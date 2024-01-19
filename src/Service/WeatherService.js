@@ -16,6 +16,8 @@ const useWeatherService = () => {
         const data = await geoCodding(city)
         const res = await request(`${_http}weather?lat=${data[0].lat}&lon=${data[0].lon}&appid=${_apiKey}`)
         if(res.length === 0) setProcess('error')
+        res.name = data[0].name
+        console.log(res)
         return _transformOneDay(res)
     }
 
@@ -23,12 +25,20 @@ const useWeatherService = () => {
         const data = await geoCodding(city)
         const res = await request(`${_http}forecast?lat=${data[0].lat}&lon=${data[0].lon}&appid=${_apiKey}&units=metric`)
         if(res.length === 0) setProcess('error')
+        res.name = data[0].name
         return res.list.map(_transformWeek)
     }
 
     const getCity = async(city='Minsk') => {
         const data = await geoCodding(city)
         const res = await request(`${_http}forecast?lat=${data[0].lat}&lon=${data[0].lon}&appid=${_apiKey}&units=metric`)
+        if(res.length === 0) setProcess('error')
+        res.name = data[0].name
+        return _transformCity(res)
+    }
+
+    const getCityWithCoordinates = async(lat, lon) => {
+        const res = await request(`${_http}forecast?lat=${lat}&lon=${lon}&appid=${_apiKey}&units=metric`)
         if(res.length === 0) setProcess('error')
         return _transformCity(res)
     }
@@ -94,7 +104,8 @@ const useWeatherService = () => {
         getOneDay,
         clearError,
         getWeek,
-        getCity
+        getCity,
+        getCityWithCoordinates
     }
 }
 

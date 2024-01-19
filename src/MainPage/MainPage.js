@@ -11,14 +11,14 @@ import 'react-toastify/dist/ReactToastify.css';
 const MainPage = () => {
 
    
-    const [city, setCity] = useState(localStorage.getItem('city') ? localStorage.getItem('city') : 'Minsk')
+    const [city, setCity] = useState(localStorage.getItem('city') ? localStorage.getItem('city') : 'Grodno')
     const notify = () => toast("Wow so easy!");
     const changeCity = city => {
-        setCity(city)
+        if(city === 'Minsk City') setCity('Minsk')
+        else setCity(city)
         localStorage.setItem('city', city)
         toast.success(`Nice city: ${city}`);
     }
-
     
 
     return(
