@@ -17,7 +17,6 @@ const useWeatherService = () => {
         const res = await request(`${_http}weather?lat=${data[0].lat}&lon=${data[0].lon}&appid=${_apiKey}`)
         if(res.length === 0) setProcess('error')
         res.name = data[0].name
-        console.log(res)
         return _transformOneDay(res)
     }
 
@@ -76,7 +75,6 @@ const useWeatherService = () => {
     const _transformOneDay = (char) => {
         let date = new Date(char.dt*1000)
         let month = date.getMonth()+1
-        console.log(month)
         month = month < 10 ? `0${month}` : month
         date = `${date.getDate()}-${month}-${date.getFullYear()}`
         return {

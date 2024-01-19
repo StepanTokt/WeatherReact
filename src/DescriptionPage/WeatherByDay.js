@@ -5,31 +5,10 @@ import { Link, useParams } from 'react-router-dom'
 import setContentCurrent from '../utils/setContentCurrent'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
 const CurrentWeather = (props) => {
-    const [current, setCurrent] = useState({})
-    const {getWeek, process, setProcess} = useWeatherService()
-    const {city} = useParams()
-    const {date} = useParams()
-    useEffect(() => {
-        updateCurrent()
-    }, [city])
-
-    const updateCurrent = () => {
-        getWeek(city)
-            .then(onCurrentLoaded)
-            .then(() => setProcess('confirmed'))
-    }
-
-    const onCurrentLoaded = (current) => {
-        current = current.filter(item => {
-            if(item.date.num === date) return item
-        })
-        current = current.slice(0,1)
-        setCurrent(current)
-    }
     
     return(
         <div className="block">
-            {setContentCurrent(process, View, current)}
+            {setContentCurrent(props.process, View, props.current)}
         </div>
     )
 }

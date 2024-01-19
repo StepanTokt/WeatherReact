@@ -7,12 +7,14 @@ import useWeatherService from '../Service/WeatherService'
 import { useGeolocated } from "react-geolocated";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import withCurrent from '../hook/withCurrent'
+
 
 const MainPage = () => {
-
+    const {getOneDay} = useWeatherService()
+    const CurrentW = withCurrent(CurrentWeather, getOneDay, false)
    
     const [city, setCity] = useState(localStorage.getItem('city') ? localStorage.getItem('city') : 'Grodno')
-    const notify = () => toast("Wow so easy!");
     const changeCity = city => {
         if(city === 'Minsk City') setCity('Minsk')
         else setCity(city)
@@ -36,7 +38,8 @@ const MainPage = () => {
             theme="dark"
             />
             <SearchLocation changeCity={changeCity}/>
-            <CurrentWeather city={city}/>
+            {/* <CurrentWeather city={city}/> */}
+            <CurrentW city={city}/>
             <Details city={city}/>
         </div>
     )

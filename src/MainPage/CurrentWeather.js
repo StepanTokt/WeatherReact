@@ -4,27 +4,11 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import setContentCurrent from '../utils/setContentCurrent'
 const CurrentWeather = (props) => {
-    const [current, setCurrent] = useState({})
-    const {getOneDay, process, setProcess} = useWeatherService()
-
-    useEffect(() => {
-        updateCurrent()
-    }, [props.city])
-
-    const updateCurrent = () => {
-        getOneDay(props.city)
-            .then(onCurrentLoaded)
-            .then(() => setProcess('confirmed'))
-    }
-
-    const onCurrentLoaded = (current) => {
-        setCurrent(current)
-    }
     
     return(
         <div className="block">
-            <Link className='current_link' to={`/${props.city}/${current.date}`}>
-                {setContentCurrent(process, View, current)}
+            <Link className='current_link' to={`/${props.current.city}/${props.current.date}`}>
+                {setContentCurrent(props.process, View, props.current)}
             </Link>
         </div>
     )

@@ -3,12 +3,17 @@ import Details from "../MainPage/Details"
 import ByHour from "./ByHour"
 import WeatherByDay from './WeatherByDay'
 import { useEffect, useState } from "react"
-
+import useWeatherService from '../Service/WeatherService'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import withCurrent from '../hook/withCurrent'
 
 const DescriptionPage = () => {
     const [city, setCity] = useState(localStorage.getItem('city') ? localStorage.getItem('city') : 'Grodno')
+    const {getWeek} = useWeatherService()
+    const WeatherByD = withCurrent(WeatherByDay, getWeek, true)
+
+
     useEffect(()=>{
         toast.success(`Look at thiis...`);
     }, [city])
@@ -26,7 +31,7 @@ const DescriptionPage = () => {
             pauseOnHover
             theme="dark"
             />
-            <WeatherByDay/>
+            <WeatherByD/>
             <ByHour/>
             <Details city={city}/>
         </div>

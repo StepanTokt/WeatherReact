@@ -10,7 +10,6 @@ import { useGeolocated } from "react-geolocated";
 import WeatherService from './Service/WeatherService'
 const App = () => {
   const [modalActive, setModalActive] = useState(false)
-  const [load, setLoad] = useState(false)
   const [city, setCity] = useState()
   const {getCityWithCoordinates} = WeatherService()
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
@@ -61,7 +60,7 @@ const renderGood = useMemo(()=>{
         <Modal active={modalActive} setActive={setModalActive}/>
       </Router>
   )
-}, [])
+}, [modalActive])
 
   return !isGeolocationAvailable && localStorage.getItem('city')  ? (
     renderGood
@@ -72,13 +71,6 @@ const renderGood = useMemo(()=>{
 ) : (
     <Spinner/>
 );
-
-  // return (
-  //   load ?
-  //   <Spinner/>
-  //   :
-
-  // );
 }
 
 export default App;
