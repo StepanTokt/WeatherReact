@@ -7,7 +7,7 @@ const useWeatherService = () => {
     const _http = 'https://api.openweathermap.org/data/2.5/'
 
     const geoCodding = async(city) => {
-        const res = await request(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${_apiKey}`)
+        const res = await request(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${_apiKey}`)
         if(res.length === 0) setProcess('error')
         return await res
     }
