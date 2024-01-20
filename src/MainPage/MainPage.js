@@ -8,7 +8,7 @@ import { useGeolocated } from "react-geolocated";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import withCurrent from '../hook/withCurrent'
-
+import {Helmet} from "react-helmet";
 
 const MainPage = () => {
     const {getOneDay} = useWeatherService()
@@ -25,6 +25,10 @@ const MainPage = () => {
 
     return(
         <div>
+            <Helmet>
+                <meta name='Today' content='Today Weather' />
+                <title>Today weather</title>
+            </Helmet>
             <ToastContainer
             position="top-right"
             autoClose={3000}

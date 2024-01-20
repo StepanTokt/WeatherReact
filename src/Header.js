@@ -23,7 +23,7 @@ const Header = ({active, setActive}) => {
                     <li className={active ? "link text_shadow" : "link"}
                         onClick={() => setActive(true)}><a>About me</a></li>
 
-                    <NavLink className={({ isActive }) => isActive && !active ? "link text_shadow" : "link"}  to='/month'><li><a>Weakly Forecast</a></li></NavLink>
+                    <NavLink className={({ isActive }) => isActive && !active ? "link text_shadow" : "link"}  to='/month'><li><a>Weekly Forecast</a></li></NavLink>
                 </ul>
             </div>
         </div>

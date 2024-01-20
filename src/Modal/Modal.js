@@ -2,6 +2,8 @@ import './Modal.css'
 import main_logo from '../img/main_logo.svg'
 import '../styles/Header.css'
 import { useEffect } from 'react'
+import {Helmet} from "react-helmet";
+
 const Modal = ({active, setActive}) => {
     useEffect(() => {
         const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -16,6 +18,11 @@ const Modal = ({active, setActive}) => {
     }, [active])
 
     return(
+        <>
+        <Helmet>
+                <meta name='About' content='About me' />
+                <title>About me</title>
+            </Helmet>
         <div 
             className={active ? 'modal_section active' : "modal_section"}
             onClick={() => setActive(false)}>
@@ -38,7 +45,7 @@ const Modal = ({active, setActive}) => {
                     Created by Stepan Tokt
                 </div>
             </div>
-        </div>
+        </div></>
     )
 }
 

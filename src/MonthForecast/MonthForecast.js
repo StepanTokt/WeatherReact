@@ -2,6 +2,7 @@ import WeekData from "./WeekData"
 import SearchLocation from '../MainPage/SearchLocation'
 import FindDate from "./FindDate"
 import { useState } from "react"
+import {Helmet} from "react-helmet";
 
 const MonthForecast = () => {
     const [city, setCity] = useState(localStorage.getItem('city') ? localStorage.getItem('city') : 'Grodno')
@@ -21,6 +22,10 @@ const MonthForecast = () => {
 
     return(
         <>
+            <Helmet>
+                <meta name='weel' content='Weekly forecast' />
+                <title>Weakly forecast</title>
+            </Helmet>
             <div className="month_flex">
                 <SearchLocation changeCity={changeCity}/>
                 <FindDate changeDate={changeDate}/>
