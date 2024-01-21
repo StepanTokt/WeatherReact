@@ -42,7 +42,6 @@ const MainPage = () => {
             theme="dark"
             />
             <SearchLocation changeCity={changeCity}/>
-            {/* <CurrentWeather city={city}/> */}
             <CurrentW city={city}/>
             <Details city={city}/>
         </div>

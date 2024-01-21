@@ -106,7 +106,7 @@ const WeekData = (props) => {
             {elements}
                 
             </div>
-            {count < 6 ? 
+            {count < 6 && process==='confirmed' && count < weather.length ? 
             <button 
             className="more"
             onClick={() => setCount(count+2)}>Show more</button>

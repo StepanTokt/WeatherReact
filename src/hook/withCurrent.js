@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 const withCurrent = (BaseComponent, getData, flag) => {
     return (props) => {
         const [current, setCurrent] = useState({})
-        const {process, setProcess} = useWeatherService()
+        const {process, setProcess, clearError} = useWeatherService()
         const {city} = useParams()
         const {date} = useParams()
 
@@ -17,6 +17,7 @@ const withCurrent = (BaseComponent, getData, flag) => {
             getData(props.city)
                 .then(onCurrentLoaded)
                 .then(() => setProcess('confirmed'))
+                
         }
 
         const onCurrentLoaded = (current) => {

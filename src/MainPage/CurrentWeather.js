@@ -1,9 +1,9 @@
 import './CurrentWeather.css'
 import useWeatherService from '../Service/WeatherService'
-import { useEffect, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import setContentCurrent from '../utils/setContentCurrent'
-const CurrentWeather = (props) => {
+const CurrentWeather = memo((props) => {
     
     return(
         <div className="block">
@@ -12,7 +12,7 @@ const CurrentWeather = (props) => {
             </Link>
         </div>
     )
-}
+})
 
 const View = ({data}) => {
     const {typeOfWeather, description, icon,temp, minTemp, maxTemp, city, date} = data

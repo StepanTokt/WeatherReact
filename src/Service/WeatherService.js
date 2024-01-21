@@ -13,12 +13,24 @@ const useWeatherService = () => {
     }
 
     const getOneDay = async(city='Minsk') => {
-        const data = await geoCodding(city)
-        const res = await request(`${_http}weather?lat=${data[0].lat}&lon=${data[0].lon}&appid=${_apiKey}`)
-        if(res.length === 0) setProcess('error')
-        res.name = data[0].name
-        return _transformOneDay(res)
+        const data = await geoCodding(city);
+    
+        if (!data || data.length === 0) {
+            setProcess('error');
+            return null;  // или другое значение, которое указывает на отсутствие данных
+        }
+    
+        const res = await request(`${_http}weather?lat=${data[0].lat}&lon=${data[0].lon}&appid=${_apiKey}`);
+        
+        if(res.length === 0) {
+            setProcess('error');
+            return null;
+        }
+    
+        res.name = data[0].name;
+        return _transformOneDay(res);
     }
+    
 
     const getWeek = async(city='Minsk') => {
         const data = await geoCodding(city)
