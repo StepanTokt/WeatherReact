@@ -6,6 +6,9 @@ import setContentCurrent from '../utils/setContentCurrent'
 const CurrentWeather = memo((props) => {
     
     return(
+
+
+        
         <div className="block">
             <Link className='current_link' to={`/${props.current.city}/${props.current.date}`}>
                 {setContentCurrent(props.process, View, props.current)}

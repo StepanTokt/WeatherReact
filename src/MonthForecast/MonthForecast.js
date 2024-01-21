@@ -8,7 +8,6 @@ const MonthForecast = () => {
     const [city, setCity] = useState(localStorage.getItem('city') ? localStorage.getItem('city') : 'Grodno')
     const [startDate, setStartDate] = useState()
     const [endDate, setEndDate] = useState()
-
     const changeCity = city => {
         if(city === 'Minsk City') setCity('Minsk')
         else setCity(city)

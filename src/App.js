@@ -12,6 +12,7 @@ const App = () => {
   const [modalActive, setModalActive] = useState(false)
   const [city, setCity] = useState()
   const {getCityWithCoordinates} = WeatherService()
+  
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
   useGeolocated({
       positionOptions: {
@@ -74,3 +75,5 @@ const renderGood = useMemo(()=>{
 }
 
 export default App;
+
+

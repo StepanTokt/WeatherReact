@@ -3,7 +3,6 @@ import icon_search from '../img/icon _search_.png'
 import { useState } from 'react'
 const SearchLocation = (props) => {
     const [value, setValue] = useState()
-
     const sendValue = () => {
         props.changeCity(value)
     }
