@@ -3,7 +3,7 @@ import { useState, useEffect, useMemo } from 'react'
 import useWeatherService from '../Service/WeatherService'
 import { Link } from 'react-router-dom'
 import setContentCurrent from '../utils/setContentCurrent'
-import { ToastContainer, toast } from 'react-toastify';
+import { CloseButton, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const WeekData = (props) => {
@@ -24,8 +24,7 @@ const WeekData = (props) => {
 
     const onWeatherLoaded = (weather) => {
         weather = weather.filter((item, i) => {if(i%8===0) return item})
-
-        
+            
         weather = weather.filter(item => {
             let currentDate = (item.date.num).split('-').reverse().join('-')
             currentDate = new Date(currentDate)
