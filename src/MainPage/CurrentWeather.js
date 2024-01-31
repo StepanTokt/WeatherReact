@@ -4,13 +4,21 @@ import { memo, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import setContentCurrent from '../utils/setContentCurrent'
 const CurrentWeather = memo((props) => {
+    let dateChange
+    if(props.current.date){
+        let day = props.current.date.split('-')[0]
+        day = day < 10 ? `0${day}`:day
+        dateChange = props.current.date.split('-')
+        dateChange[0] = day
+        dateChange = dateChange.join('-')
+    }
     
     return(
 
 
         
         <div className="block">
-            <Link className='current_link' to={`/${props.current.city}/${props.current.date}`}>
+            <Link className='current_link' to={`/${props.current.city}/${dateChange}`}>
                 {setContentCurrent(props.process, View, props.current)}
             </Link>
         </div>
