@@ -11,7 +11,6 @@ const withCurrent = (BaseComponent, getData, flag) => {
         
         useEffect(() => {
             updateCurrent()
-            console.log('render')
         }, [props.city])
 
         const updateCurrent = () => {
@@ -27,7 +26,6 @@ const withCurrent = (BaseComponent, getData, flag) => {
         }
 
         const onCurrentLoaded = (current) => {
-            console.log(current)
             if (flag) {
                 current = current.filter(item => {
                     if (item.date.num === date) return item;

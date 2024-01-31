@@ -37,12 +37,11 @@ const App = () => {
     getOneDay(coords.latitude, coords.longitude) 
             .then(() => getCityWithCoordinates(coords.latitude, coords.longitude))
             .then(onCityLoaded)   
-         .catch(() => onCityLoaded('Grodno'))
+         .catch(() => onCityLoaded('Сочи'))
 
 }
 
 const onCityLoaded = (current) => {
-    console.log(current)
     if(current.city === 'Minsk City')
       {
         localStorage.setItem('city', 'Minsk')
