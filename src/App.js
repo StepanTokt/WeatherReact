@@ -11,8 +11,7 @@ import WeatherService from './Service/WeatherService'
 const App = () => {
   const [modalActive, setModalActive] = useState(false)
   const [city, setCity] = useState()
-  const {getCityWithCoordinates, getOneDay} = WeatherService()
-  
+  const {getCityWithCoordinates, getOneDay, getDayWithCity} = WeatherService()
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
   useGeolocated({
       positionOptions: {
@@ -30,15 +29,18 @@ const App = () => {
       setCity('Grodno')
     }
   },[coords, city, isGeolocationAvailable, isGeolocationEnabled])
+  
 
   const updateCity = () => {
+
     
-
-    getOneDay(coords.latitude, coords.longitude) 
-            .then(() => getCityWithCoordinates(coords.latitude, coords.longitude))
-            .then(onCityLoaded)   
-         .catch(() => onCityLoaded('Сочи'))
-
+    // getCityWithCoordinates(coords.latitude, coords.longitude)
+    // .then(onCityLoaded) 
+    
+    getDayWithCity(coords.latitude, coords.longitude) 
+    .then((data) => getOneDay(data.city)) 
+    .then(onCityLoaded)
+    .catch(() => onCityLoaded('Сочи'))
 }
 
 const onCityLoaded = (current) => {

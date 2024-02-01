@@ -13,6 +13,7 @@ const useWeatherService = () => {
     }
 
     const getOneDay = async(city='Minsk') => {
+      
         const data = await geoCodding(city);
     
         // if (!data || data.length === 0) {
@@ -28,6 +29,12 @@ const useWeatherService = () => {
         // }
     
         res.name = data[0].name;
+        return _transformOneDay(res);
+    }
+
+    const getDayWithCity = async(lat, lon) => {
+    
+        const res = await request(`${_http}weather?lat=${lat}&lon=${lon}&appid=${_apiKey}`);
         return _transformOneDay(res);
     }
     
@@ -115,7 +122,8 @@ const useWeatherService = () => {
         clearError,
         getWeek,
         getCity,
-        getCityWithCoordinates
+        getCityWithCoordinates,
+        getDayWithCity
     }
 }
 
